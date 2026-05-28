@@ -86,7 +86,14 @@ export default function MapBackground() {
       subdomains: 'abcd',
     }).addTo(map)
 
-    // Draw accuracy circle only if GPS is real
+    // Pan map DOWN so the GPS center sits at top:38% of viewport
+    // (radar is at top:38%, map center is at top:50%, difference = 12% of viewport height)
+    map.whenReady(() => {
+      const offsetPx = Math.round(window.innerHeight * 0.12)
+      map.panBy([0, offsetPx], { animate: false })
+    })
+
+    // Accuracy circle
     if (accuracy < 500) {
       L.circle([lat, lng], {
         radius: accuracy,

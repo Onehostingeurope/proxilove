@@ -145,16 +145,16 @@ export default function HomePage() {
           }}
         />
 
-        {/* ── RADAR ORB — absolutely centered over the GPS pin ── */}
+        {/* ── RADAR ORB — centered in the visible map area above text panel ── */}
         <div
           style={{
             position: 'absolute',
-            top: '50%',
+            top: '38%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 10,
-            width: 360,
-            height: 360,
+            width: 420,
+            height: 420,
             animation: mounted ? 'fade-in 0.8s ease both' : 'none',
           }}
         >
