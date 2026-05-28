@@ -330,7 +330,7 @@ export default function HomePage() {
           aria-hidden="true"
           style={{
             position: 'absolute',
-            bottom: 80,
+            bottom: 12,
             left: '50%',
             transform: 'translateX(-50%)',
             zIndex: 20,
@@ -338,23 +338,24 @@ export default function HomePage() {
             flexDirection: 'column',
             alignItems: 'center',
             gap: 6,
-            opacity: 0.4,
+            opacity: 0.6,
             animation: 'scroll-bounce 2s ease-in-out infinite',
           }}
         >
           <div
             style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: '0.7rem',
-              color: 'var(--color-muted)',
-              letterSpacing: '0.15em',
+              fontSize: '0.65rem',
+              color: 'rgba(255,255,255,0.6)',
+              letterSpacing: '0.2em',
               textTransform: 'uppercase',
+              textShadow: '0 1px 8px rgba(0,0,0,0.8)',
             }}
           >
             Scroll
           </div>
           <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
-            <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(0,240,255,0.4)" strokeWidth="1.5" />
+            <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(0,240,255,0.5)" strokeWidth="1.5" />
             <circle cx="8" cy="8" r="2.5" fill="#00F0FF" style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }} />
           </svg>
         </div>
