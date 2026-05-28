@@ -158,20 +158,20 @@ export default function HomePage() {
           }}
         />
 
-        {/* ── RADAR ORB — higher to give text space below ── */}
+        {/* ── RADAR ORB — aligned with map GPS center (top: 38%) ── */}
         <div
           style={{
             position: 'absolute',
-            top: '33%',
+            top: '38%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 10,
-            width: 520,
-            height: 520,
+            width: 450,
+            height: 450,
             animation: mounted ? 'fade-in 0.8s ease both' : 'none',
           }}
         >
-          <RadarOrb size={520} showLabel />
+          <RadarOrb size={450} showLabel />
 
           {/* Floating profile capsules */}
           <ProfileCapsule
@@ -181,7 +181,7 @@ export default function HomePage() {
             avatarColor="linear-gradient(135deg, #FF6B9D, #FF8E53)"
             animationDelay="0s"
             animationName="float"
-            style={{ top: 20, right: -160 }}
+            style={{ top: 15, right: -130 }}
           />
           <ProfileCapsule
             name="Mike"
@@ -190,7 +190,7 @@ export default function HomePage() {
             avatarColor="linear-gradient(135deg, #4FACFE, #00F2FE)"
             animationDelay="0.8s"
             animationName="float-reverse"
-            style={{ bottom: 60, right: -140 }}
+            style={{ bottom: 50, right: -110 }}
           />
           <ProfileCapsule
             name="Jess"
@@ -199,7 +199,7 @@ export default function HomePage() {
             avatarColor="linear-gradient(135deg, #43E97B, #38F9D7)"
             animationDelay="1.6s"
             animationName="float"
-            style={{ top: 40, left: -155 }}
+            style={{ top: 30, left: -125 }}
           />
           <ProfileCapsule
             name="Alex"
@@ -208,40 +208,42 @@ export default function HomePage() {
             avatarColor="linear-gradient(135deg, #FA709A, #FEE140)"
             animationDelay="2.4s"
             animationName="float-reverse"
-            style={{ bottom: 70, left: -130 }}
+            style={{ bottom: 60, left: -105 }}
           />
         </div>
 
-        {/* ── TEXT + CTA — pushed lower so capsules never overlap ── */}
+        {/* ── TEXT + CTA — clean bottom placement, no overlay blocks ── */}
         <div
           style={{
             position: 'absolute',
-            bottom: 0,
+            bottom: 40,
             left: 0,
             right: 0,
             zIndex: 10,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '200px 24px 36px',
+            padding: '0 24px',
             background: 'none',
             backdropFilter: 'none',
+            pointerEvents: 'none',
           }}
         >
           {/* Headline */}
           <h1
             style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+              fontSize: 'clamp(1.8rem, 4.5vw, 3.4rem)',
               fontWeight: 900,
               color: '#fff',
               letterSpacing: '-0.03em',
               textAlign: 'center',
-              lineHeight: 1.08,
+              lineHeight: 1.1,
               maxWidth: 780,
-              marginBottom: 16,
+              marginBottom: 14,
               textShadow: '0 2px 20px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.7)',
               animation: mounted ? 'fade-in-up 0.8s ease 0.2s both' : 'none',
+              pointerEvents: 'auto',
             }}
           >
             Find Who&apos;s Near You,
@@ -260,14 +262,15 @@ export default function HomePage() {
           <p
             style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
+              fontSize: 'clamp(0.85rem, 1.6vw, 1.05rem)',
               fontWeight: 400,
               color: 'var(--color-muted)',
               textAlign: 'center',
-              maxWidth: 560,
-              lineHeight: 1.7,
-              marginBottom: 28,
+              maxWidth: 540,
+              lineHeight: 1.6,
+              marginBottom: 24,
               animation: mounted ? 'fade-in-up 0.8s ease 0.35s both' : 'none',
+              pointerEvents: 'auto',
             }}
           >
             PROXILOVE uses Bluetooth proximity to show you real people, in real locations,
@@ -281,11 +284,12 @@ export default function HomePage() {
           <div
             style={{
               display: 'flex',
-              gap: 16,
+              gap: 14,
               flexWrap: 'wrap',
               justifyContent: 'center',
-              marginBottom: 28,
+              marginBottom: 24,
               animation: mounted ? 'fade-in-up 0.8s ease 0.5s both' : 'none',
+              pointerEvents: 'auto',
             }}
           >
             <a href="#download" className="btn-glass">
@@ -303,23 +307,24 @@ export default function HomePage() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 24,
+              gap: 20,
               opacity: 0.6,
               animation: mounted ? 'fade-in 1s ease 0.8s both' : 'none',
+              pointerEvents: 'auto',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
               <div className="live-dot" />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-green)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--color-green)' }}>
                 LIVE
               </span>
             </div>
             <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-muted)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--color-muted)' }}>
               2,847 radars active
             </span>
             <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-muted)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--color-muted)' }}>
               Bluetooth · Ultra-Wideband
             </span>
           </div>
