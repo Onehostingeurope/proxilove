@@ -3,11 +3,16 @@ export interface Profile {
   username: string
   display_name: string
   age: number
+  birthday?: string
+  height_cm?: number
+  weight_kg?: number
   bio: string
   location: string
   is_premium: boolean
   bluetooth_token: string
   flag_count: number
+  avatar_url?: string | null
+  album_urls?: string[]
   created_at: string
   status: 'active' | 'suspended' | 'banned'
 }

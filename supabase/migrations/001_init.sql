@@ -15,6 +15,9 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   username TEXT UNIQUE NOT NULL,
   display_name TEXT,
   age INTEGER CHECK (age >= 18 AND age <= 99),
+  birthday DATE,
+  height_cm INTEGER CHECK (height_cm >= 50 AND height_cm <= 250),
+  weight_kg INTEGER CHECK (weight_kg >= 20 AND weight_kg <= 300),
   bio TEXT,
   location TEXT,
   latitude FLOAT8,
@@ -24,6 +27,7 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   premium_expires_at TIMESTAMPTZ,
   status TEXT DEFAULT 'active' CHECK (status IN ('active', 'stealth', 'suspended', 'banned')),
   avatar_url TEXT,
+  album_urls TEXT[] DEFAULT '{}'::TEXT[],
   flag_count INTEGER DEFAULT 0,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()

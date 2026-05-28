@@ -2,10 +2,14 @@ export interface Profile {
   id: string
   name: string
   age: number
+  birthday?: string
+  height_cm?: number
+  weight_kg?: number
   bio: string
   location: string
   distance_meters: number
   avatar_url: string | null
+  album_urls?: string[]
   interests: string[]
   is_locked: boolean
   is_online: boolean
