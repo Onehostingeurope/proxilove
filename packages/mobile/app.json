@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "STITCH",
+    "slug": "stitch-proximity",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0A0F24",
+    "splash": {
+      "backgroundColor": "#0A0F24"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.stitch.proximity"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0F24"
+      },
+      "package": "com.stitch.proximity"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "scheme": "stitch",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

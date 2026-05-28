@@ -1,0 +1,15 @@
+{
+  "name": "proxilove",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:admin": "pnpm --filter admin dev",
+    "build:web": "pnpm --filter web build",
+    "build:admin": "pnpm --filter admin build",
+    "type-check": "pnpm --filter web type-check && pnpm --filter admin type-check",
+    "lint": "pnpm --filter web lint && pnpm --filter admin lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

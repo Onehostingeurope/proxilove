@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.next/
+.expo/
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+.DS_Store
+.vercel
+android/
+ios/
+*.orig.*
+web-build/
+.expo-shared/
