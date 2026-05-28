@@ -45,9 +45,12 @@ function App() {
       const isStillDemo = localStorage.getItem('proxilove_admin_demo') === 'true'
       if (isStillDemo) return
 
+      const isSubpath = window.location.pathname.startsWith('/admin')
+      const loginPath = isSubpath ? '/admin/login' : '/login'
+
       setUser(session?.user ?? null)
-      if (!session && window.location.pathname !== '/login') {
-        window.location.href = '/login'
+      if (!session && window.location.pathname !== loginPath) {
+        window.location.href = loginPath
       }
     })
 

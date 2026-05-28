@@ -165,7 +165,7 @@ export default function Login() {
           type="button"
           onClick={() => {
             localStorage.setItem('proxilove_admin_demo', 'true')
-            window.location.href = '/'
+            window.location.href = window.location.pathname.startsWith('/admin') ? '/admin' : '/'
           }}
           style={{
             width: '100%',
