@@ -141,7 +141,7 @@ export default function HomePage() {
             position: 'absolute',
             inset: 0,
             background:
-              'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(10,15,36,0.45) 0%, rgba(10,15,36,0.82) 100%)',
+              'radial-gradient(ellipse 90% 70% at 50% 50%, rgba(10,15,36,0.55) 0%, rgba(10,15,36,0.92) 75%, rgba(10,15,36,0.98) 100%)',
             zIndex: 1,
             pointerEvents: 'none',
           }}
