@@ -12,7 +12,38 @@ export default function MapBackground() {
   const [locationInfo, setLocationInfo] = useState<string>('Locating…')
 
   useEffect(() => {
-    // Load Leaflet CSS
+    // ── Step 1: Start GPS immediately — parallel with script loading ──
+    let gpsCoords: { lat: number; lng: number; accuracy: number } | null = null
+    let mapReady = false
+
+    const tryBuildMap = () => {
+      if (mapReady && gpsCoords) {
+        buildMap(gpsCoords.lat, gpsCoords.lng, gpsCoords.accuracy)
+      }
+    }
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        ({ coords }) => {
+          gpsCoords = { lat: coords.latitude, lng: coords.longitude, accuracy: coords.accuracy }
+          setLocationInfo(`±${Math.round(coords.accuracy)}m accuracy`)
+          tryBuildMap()
+        },
+        () => {
+          gpsCoords = { lat: 41.3851, lng: 2.1734, accuracy: 9999 }
+          setLocationInfo('Location denied — showing default')
+          tryBuildMap()
+        },
+        // maximumAge:60000 = accept cached fix up to 60s old → instant if browser has recent fix
+        // enableHighAccuracy:false = uses WiFi/cell, much faster than waiting for GPS chip
+        { timeout: 8000, enableHighAccuracy: false, maximumAge: 60000 }
+      )
+    } else {
+      gpsCoords = { lat: 41.3851, lng: 2.1734, accuracy: 9999 }
+      setLocationInfo('GPS unavailable — showing default')
+    }
+
+    // ── Step 2: Load Leaflet CSS ──
     if (!document.querySelector('#leaflet-css')) {
       const link = document.createElement('link')
       link.id = 'leaflet-css'
@@ -21,37 +52,19 @@ export default function MapBackground() {
       document.head.appendChild(link)
     }
 
-    // Load Leaflet JS then get position
-    const loadLeafletAndInit = () => {
-      // Always get position first, THEN build map — never build with fallback first
-      if (!navigator.geolocation) {
-        setLocationInfo('GPS unavailable — showing default')
-        buildMap(41.3851, 2.1734, 9999)
-        return
-      }
-
-      navigator.geolocation.getCurrentPosition(
-        ({ coords }) => {
-          const { latitude, longitude, accuracy } = coords
-          setLocationInfo(`±${Math.round(accuracy)}m accuracy`)
-          buildMap(latitude, longitude, accuracy)
-        },
-        (err) => {
-          setLocationInfo('Location denied — showing default')
-          buildMap(41.3851, 2.1734, 9999)
-        },
-        { timeout: 10000, enableHighAccuracy: true, maximumAge: 0 }
-      )
-    }
-
+    // ── Step 3: Load Leaflet JS — map builds as soon as BOTH GPS + script are ready ──
     if (window.L) {
-      loadLeafletAndInit()
+      mapReady = true
+      tryBuildMap()
     } else {
       const script = document.createElement('script')
       script.id = 'leaflet-js'
       script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
       script.async = true
-      script.onload = loadLeafletAndInit
+      script.onload = () => {
+        mapReady = true
+        tryBuildMap()
+      }
       document.head.appendChild(script)
     }
 
