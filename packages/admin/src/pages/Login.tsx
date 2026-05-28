@@ -161,6 +161,39 @@ export default function Login() {
           </button>
         </form>
 
+        <button
+          type="button"
+          onClick={() => {
+            localStorage.setItem('proxilove_admin_demo', 'true')
+            window.location.href = '/'
+          }}
+          style={{
+            width: '100%',
+            padding: '14px',
+            fontSize: '15px',
+            fontWeight: 700,
+            marginTop: '12px',
+            background: 'linear-gradient(135deg, rgba(0,240,255,0.08), rgba(0,240,255,0.01))',
+            border: '1px solid rgba(0,240,255,0.3)',
+            borderRadius: '8px',
+            color: 'var(--color-cyan)',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+            outline: 'none',
+            boxSizing: 'border-box',
+          }}
+          onMouseOver={e => {
+            e.currentTarget.style.borderColor = 'var(--color-cyan)'
+            e.currentTarget.style.boxShadow = '0 0 15px rgba(0,240,255,0.3)'
+          }}
+          onMouseOut={e => {
+            e.currentTarget.style.borderColor = 'rgba(0,240,255,0.3)'
+            e.currentTarget.style.boxShadow = 'none'
+          }}
+        >
+          ⚡ Sign In as Demo Admin
+        </button>
+
         <p style={{ textAlign: 'center', marginTop: '24px', fontSize: '12px', color: 'var(--color-text-faint)' }}>
           Admin access only. Unauthorized access is prohibited.
         </p>

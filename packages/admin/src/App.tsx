@@ -16,11 +16,25 @@ const isSupabaseConfigured =
   import.meta.env.VITE_SUPABASE_URL !== 'https://your-project.supabase.co'
 
 function App() {
-  const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(isSupabaseConfigured)
+  const [user, setUser] = useState<User | any>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!isSupabaseConfigured) return
+    // Check local storage for demo session first
+    const isDemo = localStorage.getItem('proxilove_admin_demo') === 'true'
+    if (isDemo) {
+      setUser({
+        email: 'demo@proxilove.com',
+        user_metadata: { full_name: 'Demo Admin' }
+      })
+      setLoading(false)
+      return
+    }
+
+    if (!isSupabaseConfigured) {
+      setLoading(false)
+      return
+    }
 
     supabase.auth.getSession().then(({ data }) => {
       setUser(data.session?.user ?? null)
@@ -28,6 +42,9 @@ function App() {
     })
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      const isStillDemo = localStorage.getItem('proxilove_admin_demo') === 'true'
+      if (isStillDemo) return
+
       setUser(session?.user ?? null)
       if (!session) window.location.href = '/login'
     })

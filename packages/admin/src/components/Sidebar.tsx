@@ -65,6 +65,7 @@ export default function Sidebar({ user }: SidebarProps) {
   const navigate = useNavigate()
 
   const handleLogout = async () => {
+    localStorage.removeItem('proxilove_admin_demo')
     await supabase.auth.signOut()
     navigate('/login')
   }
