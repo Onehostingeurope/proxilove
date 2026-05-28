@@ -46,7 +46,9 @@ function App() {
       if (isStillDemo) return
 
       setUser(session?.user ?? null)
-      if (!session) window.location.href = '/login'
+      if (!session && window.location.pathname !== '/login') {
+        window.location.href = '/login'
+      }
     })
 
     return () => listener.subscription.unsubscribe()
