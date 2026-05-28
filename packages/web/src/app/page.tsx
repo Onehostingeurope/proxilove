@@ -129,6 +129,19 @@ export default function HomePage() {
         {/* Live Map Background — centers on real GPS position */}
         <MapBackground />
 
+        {/* Minimal vignette — barely darkens edges, map visible everywhere */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 1,
+            background:
+              'linear-gradient(to bottom, rgba(10,15,36,0.3) 0%, rgba(10,15,36,0.0) 15%, rgba(10,15,36,0.0) 70%, rgba(10,15,36,0.2) 100%)',
+            pointerEvents: 'none',
+          }}
+        />
+
         {/* Dot grid overlay */}
         <div
           aria-hidden="true"
@@ -211,8 +224,8 @@ export default function HomePage() {
             flexDirection: 'column',
             alignItems: 'center',
             padding: '200px 24px 36px',
-            background:
-              'linear-gradient(to bottom, transparent 0%, rgba(10,15,36,0.85) 40%, rgba(10,15,36,0.98) 65%)',
+            background: 'none',
+            backdropFilter: 'none',
           }}
         >
           {/* Headline */}
@@ -227,6 +240,7 @@ export default function HomePage() {
               lineHeight: 1.08,
               maxWidth: 780,
               marginBottom: 16,
+              textShadow: '0 2px 20px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.7)',
               animation: mounted ? 'fade-in-up 0.8s ease 0.2s both' : 'none',
             }}
           >
