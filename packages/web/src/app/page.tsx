@@ -145,11 +145,11 @@ export default function HomePage() {
           }}
         />
 
-        {/* ── RADAR ORB — centered in the visible map area above text panel ── */}
+        {/* ── RADAR ORB — higher to give text space below ── */}
         <div
           style={{
             position: 'absolute',
-            top: '38%',
+            top: '33%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 10,
@@ -199,7 +199,7 @@ export default function HomePage() {
           />
         </div>
 
-        {/* ── TEXT + CTA — pinned to bottom ── */}
+        {/* ── TEXT + CTA — pushed lower so capsules never overlap ── */}
         <div
           style={{
             position: 'absolute',
@@ -210,9 +210,9 @@ export default function HomePage() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '120px 24px 40px',
+            padding: '200px 24px 36px',
             background:
-              'linear-gradient(to bottom, transparent 0%, rgba(10,15,36,0.8) 35%, rgba(10,15,36,0.97) 65%)',
+              'linear-gradient(to bottom, transparent 0%, rgba(10,15,36,0.85) 40%, rgba(10,15,36,0.98) 65%)',
           }}
         >
           {/* Headline */}
