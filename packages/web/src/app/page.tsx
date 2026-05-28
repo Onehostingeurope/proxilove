@@ -210,9 +210,9 @@ export default function HomePage() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '0 24px 48px',
+            padding: '120px 24px 40px',
             background:
-              'linear-gradient(to bottom, transparent 0%, rgba(10,15,36,0.75) 30%, rgba(10,15,36,0.97) 70%)',
+              'linear-gradient(to bottom, transparent 0%, rgba(10,15,36,0.8) 35%, rgba(10,15,36,0.97) 65%)',
           }}
         >
           {/* Headline */}
