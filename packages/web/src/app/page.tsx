@@ -216,7 +216,7 @@ export default function HomePage() {
         <div
           style={{
             position: 'absolute',
-            bottom: 40,
+            bottom: 85,
             left: 0,
             right: 0,
             zIndex: 10,
@@ -335,7 +335,7 @@ export default function HomePage() {
           aria-hidden="true"
           style={{
             position: 'absolute',
-            bottom: 12,
+            bottom: 20,
             left: '50%',
             transform: 'translateX(-50%)',
             zIndex: 20,
