@@ -80,17 +80,18 @@ export default function MapBackground() {
         .leaflet-container { background: #0A0F24 !important; }
       `}</style>
 
-      {/* Real map — no CSS filter, full clarity */}
+      {/* Map — brightness boosted so dark tiles are actually visible */}
       <div
         ref={mapRef}
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 0,
+          filter: 'brightness(2.5) contrast(0.85) saturate(0.7)',
         }}
       />
 
-      {/* Gradient: transparent top (map visible) → dark bottom (text readable) */}
+      {/* Minimal overlay — nearly transparent at top, dark only at bottom for text */}
       <div
         aria-hidden="true"
         style={{
@@ -98,7 +99,7 @@ export default function MapBackground() {
           inset: 0,
           zIndex: 1,
           background:
-            'linear-gradient(to bottom, rgba(10,15,36,0.3) 0%, rgba(10,15,36,0.1) 25%, rgba(10,15,36,0.4) 55%, rgba(10,15,36,0.95) 100%)',
+            'linear-gradient(to bottom, rgba(10,15,36,0.0) 0%, rgba(10,15,36,0.05) 30%, rgba(10,15,36,0.5) 60%, rgba(10,15,36,0.96) 100%)',
           pointerEvents: 'none',
         }}
       />
