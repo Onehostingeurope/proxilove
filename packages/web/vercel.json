@@ -1,10 +1,5 @@
 {
   "framework": "nextjs",
   "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "rewrites": [
-    { "source": "/admin", "destination": "https://admin-kappa-virid-52.vercel.app/" },
-    { "source": "/admin/:path*", "destination": "https://admin-kappa-virid-52.vercel.app/:path*" },
-    { "source": "/assets/:path*", "destination": "https://admin-kappa-virid-52.vercel.app/assets/:path*" }
-  ]
+  "outputDirectory": ".next"
 }
