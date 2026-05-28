@@ -11,7 +11,6 @@ export default function MapBackground() {
   const mapInstanceRef = useRef<any>(null)
 
   useEffect(() => {
-    // Load Leaflet CSS
     if (!document.querySelector('#leaflet-css')) {
       const link = document.createElement('link')
       link.id = 'leaflet-css'
@@ -53,7 +52,7 @@ export default function MapBackground() {
     })
     mapInstanceRef.current = map
 
-    // CartoDB Dark Matter — free, no API key
+    // CartoDB Dark Matter — clear, free, no API key
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 20,
       subdomains: 'abcd',
@@ -62,43 +61,43 @@ export default function MapBackground() {
     // Pulsing YOU marker
     const youIcon = L.divIcon({
       html: `
-        <div style="position:relative;width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
-          <div style="position:absolute;width:60px;height:60px;border-radius:50%;
-            background:rgba(0,240,255,0.08);border:1.5px solid rgba(0,240,255,0.3);
-            animation:ring1 2.4s ease-out infinite;"></div>
-          <div style="position:absolute;width:40px;height:40px;border-radius:50%;
-            background:rgba(0,240,255,0.12);border:1.5px solid rgba(0,240,255,0.5);
-            animation:ring1 2.4s ease-out 0.6s infinite;"></div>
-          <div style="position:absolute;width:22px;height:22px;border-radius:50%;
-            background:rgba(0,240,255,0.25);border:2px solid #00F0FF;
-            box-shadow:0 0 20px rgba(0,240,255,0.9),0 0 40px rgba(0,240,255,0.4);"></div>
-          <div style="position:absolute;width:8px;height:8px;border-radius:50%;
-            background:#00F0FF;box-shadow:0 0 12px #00F0FF,0 0 24px #00F0FF;"></div>
-          <div style="position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);
-            background:rgba(10,15,36,0.85);border:1px solid rgba(0,240,255,0.4);
-            border-radius:6px;padding:2px 8px;white-space:nowrap;
-            font-family:Inter,sans-serif;font-size:10px;font-weight:700;
-            color:#00F0FF;letter-spacing:0.06em;">YOU</div>
+        <div style="position:relative;width:70px;height:70px;display:flex;align-items:center;justify-content:center;">
+          <div style="position:absolute;width:70px;height:70px;border-radius:50%;
+            border:1.5px solid rgba(0,240,255,0.4);
+            animation:r1 2s ease-out infinite;"></div>
+          <div style="position:absolute;width:46px;height:46px;border-radius:50%;
+            border:1.5px solid rgba(0,240,255,0.6);
+            animation:r1 2s ease-out 0.5s infinite;"></div>
+          <div style="position:absolute;width:26px;height:26px;border-radius:50%;
+            background:rgba(0,240,255,0.2);border:2px solid #00F0FF;
+            box-shadow:0 0 24px rgba(0,240,255,1),0 0 48px rgba(0,240,255,0.5);"></div>
+          <div style="position:absolute;width:10px;height:10px;border-radius:50%;
+            background:#00F0FF;box-shadow:0 0 16px #00F0FF;"></div>
+          <div style="position:absolute;top:72px;left:50%;transform:translateX(-50%);
+            background:rgba(0,240,255,0.15);border:1px solid rgba(0,240,255,0.6);
+            border-radius:6px;padding:3px 10px;white-space:nowrap;
+            font-family:Inter,sans-serif;font-size:11px;font-weight:800;
+            color:#00F0FF;letter-spacing:0.1em;text-shadow:0 0 8px #00F0FF;">YOU</div>
         </div>
         <style>
-          @keyframes ring1{0%{transform:scale(0.6);opacity:0.8}100%{transform:scale(1.8);opacity:0}}
+          @keyframes r1{0%{transform:scale(0.5);opacity:1}100%{transform:scale(1.5);opacity:0}}
         </style>
       `,
       className: '',
-      iconSize: [60, 60],
-      iconAnchor: [30, 30],
+      iconSize: [70, 70],
+      iconAnchor: [35, 35],
     })
 
     L.marker([lat, lng], { icon: youIcon }).addTo(map)
 
-    // Accuracy circle around user
+    // Accuracy circle
     L.circle([lat, lng], {
-      radius: 50,
+      radius: 80,
       color: '#00F0FF',
       fillColor: '#00F0FF',
-      fillOpacity: 0.04,
-      weight: 1,
-      opacity: 0.3,
+      fillOpacity: 0.05,
+      weight: 1.5,
+      opacity: 0.4,
       dashArray: '6 8',
     }).addTo(map)
   }
@@ -107,7 +106,7 @@ export default function MapBackground() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         ({ coords }) => buildMap(coords.latitude, coords.longitude),
-        ()           => buildMap(41.3851, 2.1734), // Barcelona fallback
+        ()           => buildMap(41.3851, 2.1734),
         { timeout: 6000, enableHighAccuracy: true }
       )
     } else {
@@ -120,13 +119,27 @@ export default function MapBackground() {
       <style>{`
         .leaflet-container { background: #0A0F24 !important; }
       `}</style>
+
+      {/* The actual map — full brightness, no filter */}
       <div
         ref={mapRef}
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          filter: 'brightness(0.55) saturate(0.8) hue-rotate(185deg)',
+        }}
+      />
+
+      {/* Only darken the BOTTOM 40% so text is readable, map stays visible */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          background:
+            'linear-gradient(to bottom, rgba(10,15,36,0.35) 0%, rgba(10,15,36,0.2) 30%, rgba(10,15,36,0.6) 60%, rgba(10,15,36,0.97) 100%)',
+          pointerEvents: 'none',
         }}
       />
     </>

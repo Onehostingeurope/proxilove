@@ -134,18 +134,7 @@ export default function HomePage() {
         {/* Live Map Background */}
         <MapBackground />
 
-        {/* Dark overlay — light in center so map shows, dark at edges */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'radial-gradient(ellipse 80% 65% at 50% 45%, rgba(10,15,36,0.15) 0%, rgba(10,15,36,0.55) 50%, rgba(10,15,36,0.93) 100%)',
-            zIndex: 1,
-            pointerEvents: 'none',
-          }}
-        />
+
 
         {/* Dot grid overlay */}
         <div
