@@ -153,12 +153,12 @@ export default function HomePage() {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 10,
-            width: 420,
-            height: 420,
+            width: 520,
+            height: 520,
             animation: mounted ? 'fade-in 0.8s ease both' : 'none',
           }}
         >
-          <RadarOrb size={360} showLabel />
+          <RadarOrb size={520} showLabel />
 
           {/* Floating profile capsules */}
           <ProfileCapsule
@@ -230,7 +230,8 @@ export default function HomePage() {
               animation: mounted ? 'fade-in-up 0.8s ease 0.2s both' : 'none',
             }}
           >
-            Find Who&apos;s Near You,{' '}
+            Find Who&apos;s Near You,
+            <br />
             <span
               style={{
                 color: 'var(--color-cyan)',

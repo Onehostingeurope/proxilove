@@ -93,18 +93,7 @@ export default function MapBackground() {
       map.panBy([0, offsetPx], { animate: false })
     })
 
-    // Accuracy circle
-    if (accuracy < 500) {
-      L.circle([lat, lng], {
-        radius: accuracy,
-        color: '#00F0FF',
-        fillColor: '#00F0FF',
-        fillOpacity: 0.04,
-        weight: 1,
-        opacity: 0.35,
-        dashArray: '5 8',
-      }).addTo(map)
-    }
+    // NO accuracy circle — RadarOrb React component handles all visual rings
   }
 
   return (
