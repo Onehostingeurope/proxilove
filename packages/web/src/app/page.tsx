@@ -121,20 +121,13 @@ export default function HomePage() {
       <section
         id="hero"
         style={{
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          height: '100vh',
           position: 'relative',
           overflow: 'hidden',
-          paddingTop: 64,
         }}
       >
-        {/* Live Map Background */}
+        {/* Live Map Background — centers on real GPS position */}
         <MapBackground />
-
-
 
         {/* Dot grid overlay */}
         <div
@@ -147,118 +140,93 @@ export default function HomePage() {
             backgroundSize: '40px 40px',
             animation: 'drift 8s linear infinite',
             zIndex: 2,
-            opacity: 0.4,
+            opacity: 0.3,
             pointerEvents: 'none',
           }}
         />
 
-        {/* Ambient glow blobs */}
+        {/* ── RADAR ORB — absolutely centered over the GPS pin ── */}
         <div
-          aria-hidden="true"
           style={{
             position: 'absolute',
-            top: '10%',
-            left: '15%',
-            width: 500,
-            height: 500,
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0,240,255,0.06) 0%, transparent 70%)',
-            zIndex: 1,
-            filter: 'blur(40px)',
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            bottom: '15%',
-            right: '10%',
-            width: 400,
-            height: 400,
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,90,95,0.06) 0%, transparent 70%)',
-            zIndex: 1,
-            filter: 'blur(40px)',
-          }}
-        />
-
-        {/* Content wrapper */}
-        <div
-          style={{
-            position: 'relative',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             zIndex: 10,
-            width: '100%',
-            maxWidth: 1200,
-            margin: '0 auto',
-            padding: '0 24px',
+            width: 360,
+            height: 360,
+            animation: mounted ? 'fade-in 0.8s ease both' : 'none',
+          }}
+        >
+          <RadarOrb size={360} showLabel />
+
+          {/* Floating profile capsules */}
+          <ProfileCapsule
+            name="Sarah"
+            age={24}
+            distance="12m away"
+            avatarColor="linear-gradient(135deg, #FF6B9D, #FF8E53)"
+            animationDelay="0s"
+            animationName="float"
+            style={{ top: 20, right: -160 }}
+          />
+          <ProfileCapsule
+            name="Mike"
+            age={29}
+            distance="8m away"
+            avatarColor="linear-gradient(135deg, #4FACFE, #00F2FE)"
+            animationDelay="0.8s"
+            animationName="float-reverse"
+            style={{ bottom: 60, right: -140 }}
+          />
+          <ProfileCapsule
+            name="Jess"
+            age={27}
+            distance="20m away"
+            avatarColor="linear-gradient(135deg, #43E97B, #38F9D7)"
+            animationDelay="1.6s"
+            animationName="float"
+            style={{ top: 40, left: -155 }}
+          />
+          <ProfileCapsule
+            name="Alex"
+            age={31}
+            distance="5m away"
+            avatarColor="linear-gradient(135deg, #FA709A, #FEE140)"
+            animationDelay="2.4s"
+            animationName="float-reverse"
+            style={{ bottom: 70, left: -130 }}
+          />
+        </div>
+
+        {/* ── TEXT + CTA — pinned to bottom ── */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: 10,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            padding: '0 24px 48px',
+            background:
+              'linear-gradient(to bottom, transparent 0%, rgba(10,15,36,0.75) 30%, rgba(10,15,36,0.97) 70%)',
           }}
         >
-          {/* Radar orb with orbiting profile capsules */}
-          <div
-            style={{
-              position: 'relative',
-              width: 360,
-              height: 360,
-              marginBottom: 48,
-              animation: mounted ? 'fade-in 0.8s ease both' : 'none',
-            }}
-          >
-            <RadarOrb size={360} showLabel />
-
-            {/* Floating profile capsules */}
-            <ProfileCapsule
-              name="Sarah"
-              age={24}
-              distance="12m away"
-              avatarColor="linear-gradient(135deg, #FF6B9D, #FF8E53)"
-              animationDelay="0s"
-              animationName="float"
-              style={{ top: 20, right: -160 }}
-            />
-            <ProfileCapsule
-              name="Mike"
-              age={29}
-              distance="8m away"
-              avatarColor="linear-gradient(135deg, #4FACFE, #00F2FE)"
-              animationDelay="0.8s"
-              animationName="float-reverse"
-              style={{ bottom: 60, right: -140 }}
-            />
-            <ProfileCapsule
-              name="Jess"
-              age={27}
-              distance="20m away"
-              avatarColor="linear-gradient(135deg, #43E97B, #38F9D7)"
-              animationDelay="1.6s"
-              animationName="float"
-              style={{ top: 40, left: -155 }}
-            />
-            <ProfileCapsule
-              name="Alex"
-              age={31}
-              distance="5m away"
-              avatarColor="linear-gradient(135deg, #FA709A, #FEE140)"
-              animationDelay="2.4s"
-              animationName="float-reverse"
-              style={{ bottom: 70, left: -130 }}
-            />
-          </div>
-
           {/* Headline */}
           <h1
             style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: 'clamp(2.4rem, 6vw, 4.5rem)',
+              fontSize: 'clamp(2rem, 5vw, 3.8rem)',
               fontWeight: 900,
               color: '#fff',
               letterSpacing: '-0.03em',
               textAlign: 'center',
               lineHeight: 1.08,
               maxWidth: 780,
-              marginBottom: 24,
+              marginBottom: 16,
               animation: mounted ? 'fade-in-up 0.8s ease 0.2s both' : 'none',
             }}
           >
@@ -277,13 +245,13 @@ export default function HomePage() {
           <p
             style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+              fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
               fontWeight: 400,
               color: 'var(--color-muted)',
               textAlign: 'center',
-              maxWidth: 600,
+              maxWidth: 560,
               lineHeight: 1.7,
-              marginBottom: 40,
+              marginBottom: 28,
               animation: mounted ? 'fade-in-up 0.8s ease 0.35s both' : 'none',
             }}
           >
@@ -301,6 +269,7 @@ export default function HomePage() {
               gap: 16,
               flexWrap: 'wrap',
               justifyContent: 'center',
+              marginBottom: 28,
               animation: mounted ? 'fade-in-up 0.8s ease 0.5s both' : 'none',
             }}
           >
@@ -320,7 +289,6 @@ export default function HomePage() {
               display: 'flex',
               alignItems: 'center',
               gap: 24,
-              marginTop: 40,
               opacity: 0.6,
               animation: mounted ? 'fade-in 1s ease 0.8s both' : 'none',
             }}
@@ -347,15 +315,15 @@ export default function HomePage() {
           aria-hidden="true"
           style={{
             position: 'absolute',
-            bottom: 32,
+            bottom: 80,
             left: '50%',
             transform: 'translateX(-50%)',
-            zIndex: 2,
+            zIndex: 20,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: 6,
-            opacity: 0.5,
+            opacity: 0.4,
             animation: 'scroll-bounce 2s ease-in-out infinite',
           }}
         >
