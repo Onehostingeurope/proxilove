@@ -2,5 +2,9 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "env": {
+    "VITE_SUPABASE_URL": "https://szgljrcljqtlynrnhtbi.supabase.co",
+    "VITE_SUPABASE_ANON_KEY": "sb_publishable_yjnEpESAsN43srUL0JaOkA_Up8SMlgD"
+  }
 }
