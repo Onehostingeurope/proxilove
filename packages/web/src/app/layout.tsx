@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     'real-time dating',
   ],
   authors: [{ name: 'STITCH' }],
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'STITCH — Proximity Dating',
     description:
@@ -27,8 +32,6 @@ export const metadata: Metadata = {
     title: 'STITCH — Proximity Dating',
     description: 'Find real people near you right now using Bluetooth proximity.',
   },
-  themeColor: '#0A0F24',
-  viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({
