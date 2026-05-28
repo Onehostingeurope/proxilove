@@ -4,17 +4,17 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'STITCH — Proximity Dating. Find Who\'s Near You, Right Now.',
   description:
-    'STITCH uses Bluetooth proximity to show you real people in real locations, right now. No algorithms. Just distance. Download for iOS and Android.',
+    'PROXILOVE uses Bluetooth proximity to show you real people in real locations, right now. No algorithms. Just distance. Download for iOS and Android.',
   keywords: [
     'proximity dating',
     'dating app',
     'bluetooth dating',
     'nearby singles',
-    'STITCH app',
+    'PROXILOVE app',
     'location dating',
     'real-time dating',
   ],
-  authors: [{ name: 'STITCH' }],
+  authors: [{ name: 'PROXILOVE' }],
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description:
       'Find real people near you right now using Bluetooth proximity technology.',
     type: 'website',
-    siteName: 'STITCH',
+    siteName: 'PROXILOVE',
   },
   twitter: {
     card: 'summary_large_image',

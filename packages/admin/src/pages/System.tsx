@@ -53,7 +53,7 @@ const logs = [
   { time: '22:35:01', level: 'INFO', msg: 'Hotspot density updated: Bondi Beach → 342 radars' },
   { time: '22:34:47', level: 'INFO', msg: 'New premium subscription: USR-00421' },
   { time: '22:33:12', level: 'WARN', msg: 'Push notification latency elevated: p95=340ms' },
-  { time: '22:31:05', level: 'INFO', msg: 'Stitch handshake accepted: USR-00421 ↔ USR-00156' },
+  { time: '22:31:05', level: 'INFO', msg: 'Proxilove handshake accepted: USR-00421 ↔ USR-00156' },
   { time: '22:28:44', level: 'INFO', msg: 'Flag created: USR-00734 reported by USR-00892' },
   { time: '22:25:30', level: 'INFO', msg: 'Bluetooth token refreshed: BT-2c8e4f → BT-7a3d1f' },
 ]

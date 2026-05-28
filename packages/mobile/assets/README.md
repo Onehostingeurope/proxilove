@@ -1,4 +1,4 @@
-# STITCH App Assets
+# PROXILOVE app Assets
 
 Place your app icon here as `icon.png`.
 

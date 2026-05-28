@@ -40,7 +40,7 @@ export default function HomeScreen() {
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerLeft}>
-            <Text style={styles.logo}>STITCH</Text>
+            <Text style={styles.logo}>PROXILOVE</Text>
             <View style={styles.logoUnderline} />
           </View>
 

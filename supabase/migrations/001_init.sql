@@ -45,7 +45,7 @@ CREATE POLICY "Users can insert their own profile"
   WITH CHECK (auth.uid() = id);
 
 -- ========================================
--- MATCHES (Stitch Handshakes)
+-- MATCHES (Proxilove handshakes)
 -- ========================================
 CREATE TABLE IF NOT EXISTS public.matches (
   id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,

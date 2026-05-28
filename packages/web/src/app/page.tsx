@@ -65,7 +65,7 @@ export default function HomePage() {
               letterSpacing: '-0.02em',
             }}
           >
-            STITCH
+            PROXILOVE
           </span>
         </div>
 
@@ -290,7 +290,7 @@ export default function HomePage() {
               animation: mounted ? 'fade-in-up 0.8s ease 0.35s both' : 'none',
             }}
           >
-            STITCH uses Bluetooth proximity to show you real people, in real locations,
+            PROXILOVE uses Bluetooth proximity to show you real people, in real locations,
             right now.{' '}
             <span style={{ color: 'var(--color-text)' }}>
               No algorithms. Just distance.
@@ -409,7 +409,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section-header">
             <h2>
-              How <span className="cyan-underline">STITCH</span> Works
+              How <span className="cyan-underline">PROXILOVE</span> Works
             </h2>
             <p>Three simple steps to find someone incredible right around the corner.</p>
           </div>
@@ -426,7 +426,7 @@ export default function HomePage() {
               {
                 step: '01',
                 title: 'Enable Radar',
-                desc: 'Turn on your STITCH radar and let our Bluetooth & Ultra-Wideband technology silently scan for other STITCH users within your immediate proximity. Your exact location is never shared.',
+                desc: 'Turn on your PROXILOVE radar and let our Bluetooth & Ultra-Wideband technology silently scan for other PROXILOVE users within your immediate proximity. Your exact location is never shared.',
                 icon: (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="12" r="3" fill="#00F0FF" />
@@ -449,8 +449,8 @@ export default function HomePage() {
               },
               {
                 step: '03',
-                title: 'Send a Stitch',
-                desc: 'Like what you see? Send a Stitch — a gentle, anonymous signal of interest. If they send one back, you\'re instantly connected. Message, meet, and make something real happen.',
+                title: 'Send a Love',
+                desc: 'Like what you see? Send a Love — a gentle, anonymous signal of interest. If they send one back, you\'re instantly connected. Message, meet, and make something real happen.',
                 icon: (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#00F0FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -815,7 +815,7 @@ export default function HomePage() {
               <ul className="feature-list" style={{ marginBottom: 36 }}>
                 {[
                   'Unlock all proximity photos',
-                  'Unlimited Stitch requests',
+                  'Unlimited Proxilove Requests',
                   'See exact distance in meters',
                   'Priority visibility on radars',
                   'Advanced radar filters',
@@ -908,7 +908,7 @@ export default function HomePage() {
             }}
           >
             <StatsCounter target={2847} label="Active Radars Right Now" duration={2200} />
-            <StatsCounter target={342}  label="Stitch Matches Today" duration={1800} />
+            <StatsCounter target={342}  label="PROXILOVE Matches Today" duration={1800} />
             <StatsCounter target={48}   label="Live Beach Hotspots" duration={1400} />
           </div>
 
@@ -945,7 +945,7 @@ export default function HomePage() {
               <span className="cyan-underline">Real Proximity</span>
             </h2>
             <p>
-              People are already finding each other with STITCH. Here&apos;s what they say.
+              People are already finding each other with PROXILOVE. Here&apos;s what they say.
             </p>
           </div>
 
@@ -959,7 +959,7 @@ export default function HomePage() {
             {[
               {
                 quote:
-                  'Met someone 8 meters away at Bondi Beach. We grabbed coffee the same afternoon. STITCH is the only app that actually works.',
+                  'Met someone 8 meters away at Bondi Beach. We grabbed coffee the same afternoon. PROXILOVE is the only app that actually works.',
                 name: 'Jake T.',
                 location: 'Bondi Beach, AU',
                 avatar: 'linear-gradient(135deg, #4FACFE, #00F2FE)',
@@ -1172,7 +1172,7 @@ export default function HomePage() {
               margin: '0 auto 48px',
             }}
           >
-            Download STITCH and start discovering real people in your proximity.
+            Download PROXILOVE and start discovering real people in your proximity.
             Free to download. Start stitching in 60 seconds.
           </p>
 
@@ -1378,7 +1378,7 @@ export default function HomePage() {
                   letterSpacing: '-0.02em',
                 }}
               >
-                STITCH
+                PROXILOVE
               </span>
             </div>
 
@@ -1396,7 +1396,7 @@ export default function HomePage() {
                 { label: 'Privacy Policy', href: '/privacy' },
                 { label: 'Terms of Service', href: '/terms' },
                 { label: 'Admin Login', href: '/admin' },
-                { label: 'Contact', href: 'mailto:hello@stitch.app' },
+                { label: 'Contact', href: 'mailto:hello@PROXILOVE.app' },
               ].map((link) => (
                 <a
                   key={link.label}
@@ -1442,7 +1442,7 @@ export default function HomePage() {
                 color: 'rgba(255,255,255,0.2)',
               }}
             >
-              © 2026 STITCH — Proximity Dating. All rights reserved.
+              © 2026 PROXILOVE — Proximity Dating. All rights reserved.
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>

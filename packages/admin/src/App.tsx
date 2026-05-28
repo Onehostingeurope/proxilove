@@ -58,7 +58,7 @@ function App() {
               margin: '0 auto 16px',
             }}
           />
-          <p style={{ color: 'var(--color-text-muted)', fontSize: 13 }}>Loading STITCH Admin…</p>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: 13 }}>Loading PROXILOVE Admin…</p>
         </div>
       </div>
     )

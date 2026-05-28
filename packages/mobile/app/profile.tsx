@@ -121,7 +121,7 @@ export default function ProfileScreen() {
             {/* Send Stitch CTA */}
             <View style={styles.ctaWrapper}>
               <StitchButton
-                label="Send Stitch Request"
+                label="Send Proxilove Request"
                 onPress={() => router.push('/chat')}
                 variant="outline"
                 size="lg"

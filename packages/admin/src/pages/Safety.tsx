@@ -2,8 +2,8 @@ import KPICard from '../components/KPICard'
 
 const flags = [
   { id: 'FLG-001', reporter: 'USR-00421', reported: 'USR-00734', reason: 'Inappropriate proximity behavior', date: '3 days ago', status: 'open' },
-  { id: 'FLG-002', reporter: 'USR-00892', reported: 'USR-00734', reason: 'Harassment via Stitch Request', date: '1 week ago', status: 'open' },
-  { id: 'FLG-003', reporter: 'USR-00156', reported: 'USR-00734', reason: 'Spam Stitch Requests', date: '2 weeks ago', status: 'open' },
+  { id: 'FLG-002', reporter: 'USR-00892', reported: 'USR-00734', reason: 'Harassment via Proxilove Request', date: '1 week ago', status: 'open' },
+  { id: 'FLG-003', reporter: 'USR-00156', reported: 'USR-00734', reason: 'Spam Proxilove Requests', date: '2 weeks ago', status: 'open' },
   { id: 'FLG-004', reporter: 'USR-00389', reported: 'USR-00285', reason: 'Fake profile', date: '1 day ago', status: 'resolved' },
   { id: 'FLG-005', reporter: 'USR-00913', reported: 'USR-00674', reason: 'Inappropriate content', date: '4 days ago', status: 'reviewed' },
 ]
