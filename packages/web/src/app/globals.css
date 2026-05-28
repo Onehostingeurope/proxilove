@@ -268,10 +268,16 @@ img, svg { display: block; max-width: 100%; }
   100% { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
 }
 
-/* Scroll bounce */
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-  50%       { transform: translateX(-50%) translateY(8px); opacity: 0.5; }
+/* Scroll bounce for parent */
+@keyframes scroll-bounce-simple {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(8px); opacity: 0.5; }
+}
+
+/* Wheel bounce for mouse dot */
+@keyframes wheel-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
 }
 
 /* Number count up flicker */

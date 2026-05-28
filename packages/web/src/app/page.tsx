@@ -330,39 +330,48 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator wrapper — full width to guarantee absolute perfect centering */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             bottom: 20,
-            left: '50%',
-            transform: 'translateX(-50%)',
+            left: 0,
+            right: 0,
             zIndex: 20,
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 6,
-            opacity: 0.6,
-            animation: 'scroll-bounce 2s ease-in-out infinite',
+            justifyContent: 'center',
+            pointerEvents: 'none',
           }}
         >
+          {/* Scroll indicator content — bounces cleanly */}
           <div
             style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.65rem',
-              color: 'rgba(255,255,255,0.6)',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              textShadow: '0 1px 8px rgba(0,0,0,0.8)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 6,
+              opacity: 0.6,
+              animation: 'scroll-bounce-simple 2s ease-in-out infinite',
             }}
           >
-            Scroll
+            <div
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.65rem',
+                color: 'rgba(255,255,255,0.6)',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                textShadow: '0 1px 8px rgba(0,0,0,0.8)',
+              }}
+            >
+              Scroll
+            </div>
+            <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+              <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(0,240,255,0.5)" strokeWidth="1.5" />
+              <circle cx="8" cy="8" r="2.5" fill="#00F0FF" style={{ animation: 'wheel-bounce 2s ease-in-out infinite' }} />
+            </svg>
           </div>
-          <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
-            <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(0,240,255,0.5)" strokeWidth="1.5" />
-            <circle cx="8" cy="8" r="2.5" fill="#00F0FF" style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }} />
-          </svg>
         </div>
       </section>
 
