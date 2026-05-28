@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { supabase } from '@/lib/supabase'
 import type { User } from '@supabase/supabase-js'
 import Layout from '@/components/Layout'
@@ -10,12 +10,18 @@ import Safety from '@/pages/Safety'
 import System from '@/pages/System'
 import Login from '@/pages/Login'
 
+// Check if Supabase is configured
+const isSupabaseConfigured =
+  import.meta.env.VITE_SUPABASE_URL &&
+  import.meta.env.VITE_SUPABASE_URL !== 'https://your-project.supabase.co'
+
 function App() {
   const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(true)
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(isSupabaseConfigured)
 
   useEffect(() => {
+    if (!isSupabaseConfigured) return
+
     supabase.auth.getSession().then(({ data }) => {
       setUser(data.session?.user ?? null)
       setLoading(false)
@@ -23,11 +29,11 @@ function App() {
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null)
-      if (!session) navigate('/login')
+      if (!session) window.location.href = '/login'
     })
 
     return () => listener.subscription.unsubscribe()
-  }, [navigate])
+  }, [])
 
   if (loading) {
     return (
