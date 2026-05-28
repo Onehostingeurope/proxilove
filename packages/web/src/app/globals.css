@@ -270,8 +270,8 @@ img, svg { display: block; max-width: 100%; }
 
 /* Scroll bounce */
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50%       { transform: translateY(8px); opacity: 0.5; }
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50%       { transform: translateX(-50%) translateY(8px); opacity: 0.5; }
 }
 
 /* Number count up flicker */
