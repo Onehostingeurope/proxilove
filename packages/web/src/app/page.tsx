@@ -1,9 +1,12 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import RadarOrb from '@/components/RadarOrb'
 import ProfileCapsule from '@/components/ProfileCapsule'
 import StatsCounter from '@/components/StatsCounter'
+
+const MapBackground = dynamic(() => import('@/components/MapBackground'), { ssr: false })
 
 /* ============================================================
    Inline styles — all vanilla CSS via style objects / className
@@ -128,15 +131,19 @@ export default function HomePage() {
           paddingTop: 64,
         }}
       >
-        {/* Animated background */}
+        {/* Live Map Background */}
+        <MapBackground />
+
+        {/* Dark overlay gradient on top of map */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
             background:
-              'radial-gradient(ellipse 80% 60% at 50% 40%, #141B38 0%, #0A0F24 70%)',
-            zIndex: 0,
+              'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(10,15,36,0.45) 0%, rgba(10,15,36,0.82) 100%)',
+            zIndex: 1,
+            pointerEvents: 'none',
           }}
         />
 
@@ -147,11 +154,12 @@ export default function HomePage() {
             position: 'absolute',
             inset: 0,
             backgroundImage:
-              'radial-gradient(circle, rgba(0,240,255,0.12) 1px, transparent 1px)',
+              'radial-gradient(circle, rgba(0,240,255,0.08) 1px, transparent 1px)',
             backgroundSize: '40px 40px',
             animation: 'drift 8s linear infinite',
-            zIndex: 1,
-            opacity: 0.5,
+            zIndex: 2,
+            opacity: 0.4,
+            pointerEvents: 'none',
           }}
         />
 
@@ -189,7 +197,7 @@ export default function HomePage() {
         <div
           style={{
             position: 'relative',
-            zIndex: 2,
+            zIndex: 10,
             width: '100%',
             maxWidth: 1200,
             margin: '0 auto',
